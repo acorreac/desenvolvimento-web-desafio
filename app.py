@@ -1,7 +1,9 @@
-from fileinput import filename
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
+import db
 
 app = Flask(__name__)
+
+connection = db.connect()
 
 @app.route('/')
 def index():
@@ -14,3 +16,31 @@ def quem_somos():
 @app.route('/contato')
 def contato():
     return render_template('contato.html')
+
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    if request.method == "POST":
+        email = request.form['femail']
+        assunto = request.form['fassunto']
+        descricao = request.form['fdescricao']
+        
+        cur = connection.cursor()
+        cur.execute("INSERT INTO contato(email, assunto, descricao) VALUES (?, ?, ?)", (email, assunto, descricao))
+       
+        connection.commit()
+        
+        cur.close()
+
+        return 'Contato Enviado!'
+    return render_template('contatos.html')
+
+@app.route('/users')
+def users():
+    cur = connection.cursor()
+
+    users = cur.execute("SELECT * FROM contato")
+
+    if users != '':
+        userDetails = cur.fetchall()
+
+        return render_template("contatos.html", userDetails=userDetails)

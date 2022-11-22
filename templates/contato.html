@@ -1,24 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contato</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
-  </head>
-
-<body background="{{ url_for('static', filename='img/fundo2.png') }}">
-    <div class="c">
-        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo Unes">
-
-        <a href="contato" alt="Contatos" target="_self">Contato</a>
-        <span> | </span>
-        <a href="quem-somos" alt="Quem somos" target="_self">Quem somos</a>
-        <span> | </span>
-        <a href="/" alt="index" target="_self">Home</a>
-    </div>
+{% block contents %}
     <div>
         <h1>Entre em contato</h1>
 
@@ -29,23 +11,17 @@
     <hr style="width:68%">
 
     <div>
-    <form>
+    <form method="POST" action="/contact" name="cadastro">
         Seu e-mail:<br>
-        <input type="text" name="e-mail"> <br>
+        <input type="text" name="femail" required><br>
 
         Assunto:<br>
-        <input type="text" name="assunto"> <br>
+        <input type="text" name="fassunto" required><br>
 
         Descrição:<br>
-        <input type="text" name="descrição"><br>
+        <input type="text" name="fdescricao" required><br><br>
 
-        <input type="submit" value="Enviar">
+        <button type="submit" value="Enviar">Enviar</button>
     </form>
     </div>
-
-    <div class="direitos">
-        <h4>Todos os direitos reservados</h4>
-    </div>
-</body>
-
-</html>
+{% endblock contents %}

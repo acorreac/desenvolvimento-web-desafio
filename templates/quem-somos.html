@@ -1,24 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quem Somos</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
-</head>
-
-<body background="i{{ url_for('static', filename='img/fundo2.png')}}">
-    <div class="quem">
-        <img src="{{ url_for('static', filename='img/logo.png')}}" alt="Logo Unes">
-
-        <a href="contato" alt="Contatos" target="_self">Contato</a>
-        <span> | </span>
-        <a href="quem-somos" alt="Quem somos" target="_self">Quem somos</a>
-        <span> | </span>
-        <a href="/" alt="index.html" target="_self">Home</a>
-    </div>
+{% block contents %}
     <div >
         <h1>Quem somos</h1>
 
@@ -55,10 +37,4 @@
             repudiandae.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti asperiores, autem dicta ab ex
             quaerat ratione aut reiciendis.</p>
     </div>
-
-    <div class="direitos">
-        <h4>Todos os direitos reservados</h4>
-    </div>
-</body>
-
-</html>
+{% endblock contents %}
