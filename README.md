@@ -14,7 +14,7 @@ Páginas: Home, Quem Somos e Contato.
 
 <h3>Após instalado deverá clonar o repositório</h3>
 
-> https://github.com/acorreac/sistema-pagina-pessoal.git
+> https://github.com/acorreac/desenvolvimento-web-desafio
 <br>
 
 <h3>Subir o script do arquivo db-scrip.sql no gerenciador de banco de dados de seu preferencia(Workbanch, Dbeaver e etc) para criar o banco de dados<h3>
